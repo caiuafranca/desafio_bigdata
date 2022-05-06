@@ -16,16 +16,19 @@ este desafio não é obrigatório e tem apenas como finalidade passar um cenario
 você recebera em um pacote desafio.tar que ira conter uma pasta dados com arquivos para serem ingeridos no HDFS, note que dentro da pasta existe uma ordem para que os arquivos sejam injeridos, 1 ingestao, 2 ingestao, 3 ingestao, dentro de cada pasta possui um arquivo com dados de cadastro de clientes na sequencia de criação dos arquivos e uma pasta vazia de scripts onde vocês deverão criar dois arquivos em shell para executar os processos de criação do ambiente e a execução dos processos.
 
 Layout da Pasta
-    -desafio
-        - dados
-            - 1 ingestao
-            - 2 ingestao
-            - 3 ingestao
-        - scripts
-
+    
+- desafio
+    - dados
+        - 1_ingestao/dados_cliente.txt
+        - 2_ingestao/dados_cliente.txt
+        - 3_ingestao/dados_cliente.txt
+    - scripts
+        - rollout.sh
+        - job.sh
+       
 ## Requisitos
 
-no linux você recebera o pacote desafio.tar, que deverá ser descompactado em /home/'SEU NOME'/implantacao (lembre-se de criar o diretorio)
+no linux você recebera o pacote desafio.zip, que deverá ser descompactado em /home/'SEU NOME'/implantacao (lembre-se de criar o diretorio)
 
 no pacote:
 
@@ -41,7 +44,7 @@ no HDFS você terá que criar a segunte estrutura de diretórios
 
 2 - Criar outro script em shell para efetuar o trabalho de migração dos arquivos que poderá ser chamado de job.sh
 
-### Regras de Negocio:
+## Regras de Negocio:
 
 - RN01 - na pasta /dados/indiana_jones/in só deverá conter o arquivo mais atual
 - RN02 - na pasta /dados/indiana_jones/process deverá conter os arquivos já processados que tenham menos de 1 dias, arquivos com mais de  1 dias deve ser migrado para a pasta /dados/indiana_jones/delete compactado em tar com a data de compactação ex. dados_clientes_05052022.tar
