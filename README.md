@@ -4,19 +4,21 @@ você foi selecionado para participar de um projeto, sabemos que encontra-se bas
 
 ### IMPORTANTE
 
-este desafio não é obrigatório e tem apenas como finalidade passar um cenario de um projeto para que vocês tenham uma noção como é o dia dia de um Engenheiro de Dados, não existe maneira certa ou errada de fazer invente a sua.
+este desafio não é obrigatório, tem apenas como finalidade passar um cenário de um projeto possível, para que vocês tenham uma noção como é o dia a dia de um Engenheiro de Dados. 
+**não existe maneira certa ou errada de fazer invente a sua**.
 
-* Pesquise
+* Pesquize
 * Converse com seus Amigos
 * Compartilhe seus resultados em suas redes
-* Se divirta 
+* Se divirta
+* Aprenda bastante
+* Usem o github
 
 ## ESCOPO
 
-você recebera em um pacote desafio.tar que ira conter uma pasta dados com arquivos para serem ingeridos no HDFS, note que dentro da pasta existe uma ordem para que os arquivos sejam injeridos, 1 ingestao, 2 ingestao, 3 ingestao, dentro de cada pasta possui um arquivo com dados de cadastro de clientes na sequencia de criação dos arquivos e uma pasta vazia de scripts onde vocês deverão criar dois arquivos em shell para executar os processos de criação do ambiente e a execução dos processos.
+você receberá em um pacote desafio_bigdata.zip que ira conter uma pasta "dados" com pastas e arquivos para serem ingeridos no HDFS, note que dentro da pasta dados existe uma ordem para que os arquivos sejam ingeridos, 1_ingestao, 2_ingestao, 3_ingestao, dentro de cada pasta possui um arquivo com dados_clientes.txt na sequencia de criação dos arquivos e uma pasta vazia de "scripts" onde vocês deverão criar dois arquivos em shell para executar os processos de criação do ambiente e a execução dos processos.
 
-Layout da Pasta
-    
+Layout da Pasta    
 - desafio
     - dados
         - 1_ingestao/dados_cliente.txt
@@ -26,14 +28,21 @@ Layout da Pasta
         - rollout.sh
         - job.sh
        
-## Requisitos
+## Etapas e Explicações
 
-no linux você recebera o pacote desafio.zip, que deverá ser descompactado em /home/'SEU NOME'/implantacao (lembre-se de criar o diretorio)
+1 - Efetuar o Download do pacote usando o CURL ou usar o Github para clonar o projeto
 
-no pacote:
+https://github.com/caiuafranca/desafio_bigdata/archive/refs/heads/main.zip
 
-desafio terá a pasta dados e dentro as pastas com os arquivos para serem ingeridas e a pasta script onde você criara os scripts de rollout.sh e job.sh
+ou git clone https://github.com/caiuafranca/desafio_bigdata.git
 
+2 - No "Namenode" o pacote desafio_bigdata-main.zip, que deverá ser descompactado em /home/'SEU NOME'/implantacao (lembre-se de criar o diretorio)
+
+o pacote:
+
+desafio_bigdata-main terá a pasta "dados" e dentro as pastas com os arquivos para serem ingeridas e a pasta "script" onde você criara os scripts de rollout.sh (existe um template) e job.sh (existe um template)
+
+# TAREFA
 no HDFS você terá que criar a segunte estrutura de diretórios
 
 - /dados/indiana_jones/in
@@ -42,13 +51,16 @@ no HDFS você terá que criar a segunte estrutura de diretórios
 
 1 - você terá que criar um script shell parta efetuar a criação (rollout) da estrutura que pode ser chamado de rollout.sh, neste script deverá ter todo o processo de criação das pastas e permissionamento
 
-2 - Criar outro script em shell para efetuar o trabalho de migração dos arquivos que poderá ser chamado de job.sh
+2 - Criar outro script em shell (job.sh) para efetuar o trabalho de migração dos arquivos do linux para o hdfs.
 
-## Regras de Negocio:
+## Regras de Negócio (Atenção as Regras):
 
-- RN01 - na pasta /dados/indiana_jones/in só deverá conter o arquivo mais atual
-- RN02 - na pasta /dados/indiana_jones/process deverá conter os arquivos já processados que tenham menos de 1 dias, arquivos com mais de  1 dias deve ser migrado para a pasta /dados/indiana_jones/delete compactado em tar com a data de compactação ex. dados_clientes_05052022.tar
+- RN01 - na pasta /dados/indiana_jones/in só deverá conter o arquivo de ingestão mais atual
+- RN02 - na pasta /dados/indiana_jones/process deverá conter os arquivos já processados que tenham menos de 1 dias, arquivos com mais de  1 dias deve ser migrado para a pasta de delete 
+- RN03 - na pasta /dados/indiana_jones/delete terá os arquivos compactados(tar/zip/tar.gz) com a data de compactação ex. dados_clientes_05052022.tar
 
 ### OBS 
 
 usem e abusem do echo para evidenciar o seu processo em tela
+
+echo "Aproveitem a Jornada para adquirir conhecimento"
